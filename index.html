@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishi V Nair | AI Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #111; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* NAV */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
+        .logo { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #111; text-decoration: none; }
+        .nav-links a { text-decoration: none; color: #555; margin-left: 30px; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #000; }
+
+        /* HERO */
+        .hero { padding: 100px 0; max-width: 800px; }
+        h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 15px; color: #111; }
+        .role-title { font-size: 1.1rem; color: #666; margin-bottom: 30px; }
+        .bio-text { font-size: 1.25rem; color: #333; max-width: 700px; margin-bottom: 40px; }
+
+        /* BUTTONS */
+        .btn-group { display: flex; gap: 15px; }
+        .btn { padding: 14px 32px; border-radius: 5px; font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
+        .btn-black { background-color: #111; color: #fff; border: 2px solid #111; }
+        .btn-black:hover { background-color: #333; border-color: #333; }
+        .btn-white { background-color: transparent; color: #111; border: 1px solid #ddd; }
+        .btn-white:hover { border-color: #111; }
+
+        /* SECTIONS */
+        .section-title { font-size: 2rem; margin-bottom: 30px; margin-top: 80px; }
+        .about-content { font-size: 1.1rem; color: #444; max-width: 800px; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">rishivnair</a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <!-- LINK TO YOUR APP -->
+                <a href="https://menu.rishivnair.com" target="_blank">Portfolio</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <h1>Rishi V Nair</h1>
+            <p class="role-title">AI Engineer &nbsp;|&nbsp; F&B Operations Expert &nbsp;|&nbsp; Full-Stack Developer</p>
+            <p class="bio-text">
+                I transform business challenges into AI-powered solutions. 
+                Specializing in bridging the gap between kitchen operations and data science.
+            </p>
+            <div class="btn-group">
+                <a href="https://menu.rishivnair.com" class="btn btn-black" target="_blank">View Live Portfolio</a>
+                <a href="#" class="btn btn-white">Download CV</a>
+            </div>
+        </section>
+
+        <section id="about" style="padding-bottom: 100px;">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>With experience in the Food & Beverage sector and training in Machine Learning, I build SaaS tools that solve real operational inefficiencies.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
