@@ -120,36 +120,41 @@
             <div class="h-px bg-slate-200 dark:bg-slate-800 flex-grow ml-4"></div>
         </div>
 
-        <!-- HERO SECTION (With Portrait) -->
+        <!-- HERO SECTION (Corrected Layout & Image) -->
         <section id="home" class="reveal delay-100 mb-32">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- Left: Text Content -->
-                <div>
-                    <h1 class="text-6xl md:text-9xl font-extrabold text-slate-900 dark:text-white tracking-tighter leading-[0.95] mb-12">
+            <!-- Changed layout from 50/50 to 12-column grid for better spacing -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Text Content (Occupies 7/12 columns - MORE SPACE) -->
+                <div class="lg:col-span-7">
+                    <h1 class="text-6xl md:text-8xl font-extrabold text-slate-900 dark:text-white tracking-tighter leading-[0.95] mb-8">
                         Hospitality <br>
                         <span class="text-slate-400 dark:text-slate-500">&</span> Intelligence.
                     </h1>
-                    <p class="max-w-xl text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300 leading-relaxed mb-10">
+                    <p class="max-w-2xl text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300 leading-relaxed mb-10">
                         I combine <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">5 years of F&B operations</span> with modern <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">Artificial Intelligence</span> to build tools that solve real problems, cut costs, and reduce waste.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://menu.rishivnair.com" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all">Launch Menu AI Tool</a>
-                        <a href="resume.pdf" target="_blank" class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all">Download CV</a>
+                        <a href="https://menu.rishivnair.com" target="_blank" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all text-center">Launch Menu AI Tool</a>
+                        <a href="resume.pdf" target="_blank" class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all text-center">Download CV</a>
                     </div>
                 </div>
                 
-                <!-- Right: Portrait (Hexagon Mode) -->
-                <div class="flex justify-center md:justify-end reveal delay-200">
-                    <!-- The Hexagon Image -->
-                    <!-- Note: We use drop-shadow instead of shadow because standard shadows get clipped off -->
+                <!-- Right: Portrait (Occupies 5/12 columns) -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end reveal delay-200">
+                    <!-- HEXAGON FIXES: 
+                         1. object-[50%_35%] -> Moves the image content DOWN so your head clears the top point.
+                         2. w-72 h-72 -> Slightly larger for better balance. 
+                    -->
                     <img 
                         src="profile.png" 
                         alt="Rishi V Nair Portrait" 
-                        class="w-64 h-64 md:w-80 md:h-80 object-cover bg-slate-200 dark:bg-slate-800 transition-transform duration-500 hover:scale-105 hover:rotate-3 drop-shadow-2xl"
+                        class="w-72 h-72 md:w-96 md:h-96 object-cover object-[50%_35%] bg-slate-200 dark:bg-slate-800 transition-transform duration-500 hover:scale-105 hover:rotate-2 drop-shadow-2xl"
                         style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"
                     >
                 </div>
-
+            </div>
+        </section>
         <!-- PROJECTS (RENAMED FROM LEDGER) -->
         <section id="projects" class="reveal delay-200">
             <div class="flex items-end justify-between mb-8 border-b border-slate-900 dark:border-slate-700 pb-4">
