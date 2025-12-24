@@ -3,76 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishi V Nair | AI Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <title>Rishi V Nair | Systems Architect</title>
+    
+    <!-- FONTS: Inter (Logic) & JetBrains Mono (Technical) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- TAILWIND CSS (No Build Step Required) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- TAILWIND CONFIG -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            900: '#0f172a',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                        }
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- CUSTOM STYLES FOR GRID & ANIMATION -->
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #111; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
-        /* NAV */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
-        .logo { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #111; text-decoration: none; }
-        .nav-links a { text-decoration: none; color: #555; margin-left: 30px; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: #000; }
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        /* The Blueprint Grid Pattern */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+        }
+        /* Smooth Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: revealContent 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
 
-        /* HERO */
-        .hero { padding: 100px 0; max-width: 800px; }
-        h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 15px; color: #111; }
-        .role-title { font-size: 1.1rem; color: #666; margin-bottom: 30px; }
-        .bio-text { font-size: 1.25rem; color: #333; max-width: 700px; margin-bottom: 40px; }
-
-        /* BUTTONS */
-        .btn-group { display: flex; gap: 15px; }
-        .btn { padding: 14px 32px; border-radius: 5px; font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
-        .btn-black { background-color: #111; color: #fff; border: 2px solid #111; }
-        .btn-black:hover { background-color: #333; border-color: #333; }
-        .btn-white { background-color: transparent; color: #111; border: 1px solid #ddd; }
-        .btn-white:hover { border-color: #111; }
-
-        /* SECTIONS */
-        .section-title { font-size: 2rem; margin-bottom: 30px; margin-top: 80px; }
-        .about-content { font-size: 1.1rem; color: #444; max-width: 800px; }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .btn-group { flex-direction: column; width: 100%; }
-            .btn { text-align: center; }
+        @keyframes revealContent {
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <nav>
-            <a href="#" class="logo">rishivnair</a>
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#about">About</a>
-                <!-- LINK TO YOUR APP -->
-                <a href="https://menu.rishivnair.com" target="_blank">Portfolio</a>
-            </div>
-        </nav>
+<body class="bg-grid min-h-screen flex flex-col justify-between selection:bg-slate-900 selection:text-white">
 
-        <section class="hero">
-            <h1>Rishi V Nair</h1>
-            <p class="role-title">AI Engineer &nbsp;|&nbsp; F&B Operations Expert &nbsp;|&nbsp; Full-Stack Developer</p>
-            <p class="bio-text">
-                I transform business challenges into AI-powered solutions. 
-                Specializing in bridging the gap between kitchen operations and data science.
+    <!-- HEADER / SYSTEM CONSOLE -->
+    <header class="fixed top-0 w-full bg-slate-50/90 backdrop-blur-sm z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- LOGO BLOCK -->
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-slate-900 text-white flex items-center justify-center font-bold font-mono text-lg rounded-sm">
+                    R
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold tracking-tight text-sm uppercase">Rishi V Nair</span>
+                    <span class="font-mono text-[10px] text-slate-500 tracking-widest uppercase">Systems Architect</span>
+                </div>
+            </div>
+
+            <!-- NAVIGATION PILLS (Desktop) -->
+            <nav class="hidden md:flex bg-slate-100 p-1 rounded-sm border border-slate-200">
+                <a href="#" class="px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider bg-white shadow-sm rounded-sm border border-slate-200 text-slate-900 transition-all">Synthesis</a>
+                <a href="#projects" class="px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-all">Ledger</a>
+                <a href="#about" class="px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-all">Protocol</a>
+            </nav>
+
+            <!-- RIGHT CTA -->
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex gap-4 font-mono text-xs tracking-widest text-slate-400">
+                    <a href="https://github.com/rishivnair" target="_blank" class="hover:text-slate-900 transition-colors">GITHUB</a>
+                    <a href="#" class="hover:text-slate-900 transition-colors">LINKEDIN</a>
+                </div>
+                <a href="mailto:your@email.com" class="bg-slate-900 text-white px-6 py-3 text-xs font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 transition-all">
+                    Get_In_Touch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-6 pt-40 pb-24 w-full">
+
+        <!-- STATUS INDICATOR -->
+        <div class="reveal flex items-center gap-3 mb-12">
+            <div class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </div>
+            <span class="font-mono text-xs font-medium tracking-widest text-white bg-slate-900 px-2 py-1 rounded-sm">SYNTHESIS_ACTIVE // V.2.4.0</span>
+            <div class="h-px bg-slate-200 flex-grow ml-4"></div>
+        </div>
+
+        <!-- HERO TYPOGRAPHY -->
+        <section class="reveal delay-100 mb-32">
+            <h1 class="text-6xl md:text-9xl font-extrabold text-slate-900 tracking-tighter leading-[0.85] mb-12">
+                Logic <br>
+                <span class="text-slate-400">&</span> Luxury.
+            </h1>
+            <p class="max-w-2xl text-xl md:text-2xl font-medium text-slate-600 leading-relaxed">
+                Designing intelligent architectures that bridge the gap between 
+                <span class="text-slate-900 border-b border-slate-300">high-frequency computation</span> and 
+                <span class="text-slate-900 border-b border-slate-300">high-touch hospitality</span>.
             </p>
-            <div class="btn-group">
-                <a href="https://menu.rishivnair.com" class="btn btn-black" target="_blank">View Live Portfolio</a>
-                <a href="#" class="btn btn-white">Download CV</a>
-            </div>
         </section>
 
-        <section id="about" style="padding-bottom: 100px;">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <p>With experience in the Food & Beverage sector and training in Machine Learning, I build SaaS tools that solve real operational inefficiencies.</p>
+        <!-- THE LEDGER (PROJECTS) -->
+        <section id="projects" class="reveal delay-200">
+            <div class="flex items-end justify-between mb-8 border-b border-slate-900 pb-4">
+                <h2 class="font-mono text-sm tracking-widest uppercase">Engineering_Artifacts</h2>
+                <span class="font-mono text-xs text-slate-400">INDEX 01-04</span>
             </div>
+
+            <!-- PROJECT 01: MENU MATRIX -->
+            <div class="group border-t border-slate-200 hover:border-slate-900 transition-colors duration-500">
+                <a href="https://menu.rishivnair.com" target="_blank" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <!-- ID -->
+                    <div class="md:col-span-1">
+                        <span class="font-mono text-xs text-slate-400 group-hover:text-emerald-500 transition-colors">001</span>
+                    </div>
+                    <!-- Title & Tags -->
+                    <div class="md:col-span-4">
+                        <h3 class="text-3xl font-bold text-slate-900 mb-3 group-hover:translate-x-2 transition-transform duration-300">MenuMatrix</h3>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 border border-slate-200 text-[10px] font-mono uppercase tracking-wide text-slate-500 rounded-sm">Python</span>
+                            <span class="px-2 py-1 border border-slate-200 text-[10px] font-mono uppercase tracking-wide text-slate-500 rounded-sm">Unsupervised ML</span>
+                        </div>
+                    </div>
+                    <!-- Description -->
+                    <div class="md:col-span-5">
+                        <p class="text-slate-600 leading-relaxed">
+                            A Full-Stack SaaS utilizing K-Means Clustering to automate menu engineering. 
+                            Features "Data Duration" guardrails and Silhouette Score validation to transform 
+                            messy F&B data into strategic profitability quadrants.
+                        </p>
+                    </div>
+                    <!-- Action -->
+                    <div class="md:col-span-2 flex justify-end">
+                        <div class="h-10 w-10 border border-slate-200 rounded-full flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- PROJECT 02: PLACEHOLDER (Resume) -->
+            <div class="group border-t border-b border-slate-200 hover:border-slate-900 transition-colors duration-500">
+                <a href="#" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-1">
+                        <span class="font-mono text-xs text-slate-400 group-hover:text-emerald-500 transition-colors">002</span>
+                    </div>
+                    <div class="md:col-span-4">
+                        <h3 class="text-3xl font-bold text-slate-900 mb-3 group-hover:translate-x-2 transition-transform duration-300">System_Kernel</h3>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-1 border border-slate-200 text-[10px] font-mono uppercase tracking-wide text-slate-500 rounded-sm">PDF</span>
+                            <span class="px-2 py-1 border border-slate-200 text-[10px] font-mono uppercase tracking-wide text-slate-500 rounded-sm">Curriculum Vitae</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <p class="text-slate-600 leading-relaxed">
+                            Comprehensive documentation of professional history, including operational roles 
+                            in hospitality and technical certifications in Artificial Intelligence.
+                        </p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-end">
+                        <div class="h-10 w-10 border border-slate-200 rounded-full flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
         </section>
-    </div>
+
+    </main>
+
+    <!-- SYSTEM FOOTER -->
+    <footer class="border-t border-slate-200 bg-white py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="h-2 w-2 bg-emerald-500 rounded-full"></div>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-slate-500">System Status: Operational</span>
+            </div>
+            
+            <div class="font-mono text-[10px] uppercase tracking-widest text-slate-400">
+                Last Sync: Just Now
+            </div>
+
+            <div class="font-mono text-[10px] uppercase tracking-widest text-slate-400">
+                © 2025 Nair_Computational_Studios // All_Rights_Reserved
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
