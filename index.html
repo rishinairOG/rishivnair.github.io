@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="scroll-smooth">
 <head>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishi V Nair | Systems Architect</title>
+    <title>Rishi V Nair | AI & Operations</title>
     
-    <!-- FONTS: Inter (Logic) & JetBrains Mono (Technical) -->
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
     <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- TAILWIND CONFIG (enable class-based dark mode) -->
+    <!-- CONFIG -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -25,513 +25,334 @@
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        slate: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            400: '#94a3b8',
-                            700: '#334155',
-                            800: '#0b1220',
-                            900: '#0f172a',
-                        },
-                        emerald: {
-                            500: '#10b981',
-                        }
+                        slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 400: '#94a3b8', 700: '#334155', 800: '#0b1220', 900: '#0f172a' },
+                        emerald: { 500: '#10b981' }
                     }
                 }
             }
         }
     </script>
 
-    <!-- CUSTOM STYLES + DARK MODE VARIABLES -->
+    <!-- STYLES -->
     <style>
-        /* Color tokens — used for quick overrides and non-tailwind styles */
-        :root{
-            --bg: #f8fafc;
-            --text: #0f172a;
-            --muted: #94a3b8;
-            --card: #ffffff;
-            --grid-rgba: 0, 15, 23; /* used for light grid */
-        }
-        .dark {
-            --bg: #0b1220;
-            --text: #e6eef8;
-            --muted: #94a3b8;
-            --card: #071020;
-            --grid-rgba: 255, 255, 255; /* used for dark grid */
-        }
-
+        :root{ --bg: #f8fafc; --text: #0f172a; --grid-rgba: 0, 15, 23; }
+        .dark { --bg: #0b1220; --text: #e6eef8; --grid-rgba: 255, 255, 255; }
         body { background-color: var(--bg); color: var(--text); transition: background-color .25s ease, color .25s ease; }
-
         .bg-grid{
             background-size: 40px 40px;
             background-image:
                 linear-gradient(to right, rgba(var(--grid-rgba), 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(var(--grid-rgba), 0.03) 1px, transparent 1px);
         }
-
-        /* Reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(10px);
-            animation: revealContent 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        .reveal { opacity: 0; transform: translateY(10px); animation: revealContent 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
         @keyframes revealContent { to { opacity: 1; transform: translateY(0); } }
-
-        /* Small helpers for icons / toggle */
         .icon-btn { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 6px; }
-
-        /* Mobile menu animation helpers */
         .mobile-menu-enter { animation: fadeIn .18s ease both; }
         .mobile-menu-exit { animation: fadeOut .12s ease both; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-6px); } }
-
-        /* Selection colors for dark mode */
-        .dark ::selection { background: #e6eef8; color: #0f172a; }
     </style>
 </head>
 <body class="bg-grid min-h-screen flex flex-col justify-between selection:bg-slate-900 selection:text-white transition-colors duration-300">
 
-    <!-- HEADER / SYSTEM CONSOLE -->
+    <!-- HEADER -->
     <header class="fixed top-0 w-full bg-slate-50/90 dark:bg-slate-900/80 backdrop-blur-sm z-50 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             
-            <!-- LOGO BLOCK -->
+            <!-- LOGO -->
             <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center font-bold font-mono text-lg rounded-sm">
-                    R
-                </div>
+                <div class="w-10 h-10 bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center font-bold font-mono text-lg rounded-sm">R</div>
                 <div class="flex flex-col">
                     <span class="font-bold tracking-tight text-sm uppercase dark:text-white">Rishi V Nair</span>
-                    <span class="font-mono text-[10px] text-slate-500 dark:text-slate-300 tracking-widest uppercase">Systems Architect</span>
+                    <span class="font-mono text-[10px] text-slate-500 dark:text-slate-300 tracking-widest uppercase">AI & Operations</span>
                 </div>
             </div>
 
-            <!-- NAVIGATION PILLS (Desktop) -->
-            <nav class="hidden md:flex bg-slate-100 p-1 rounded-sm border border-slate-200 sticky top-4">
-                <a href="#synthesis" class="nav-link px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider rounded-sm border border-transparent transition-all bg-white shadow-sm text-slate-900 border-slate-200">Synthesis</a>
-                <a href="#projects" class="nav-link px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider rounded-sm border border-transparent transition-all text-slate-500 hover:text-slate-900">Ledger</a>
-                <a href="#experience" class="nav-link px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider rounded-sm border border-transparent transition-all text-slate-500 hover:text-slate-900">Experience</a>
+            <!-- NAV (Desktop) -->
+            <nav class="hidden md:flex bg-slate-100 dark:bg-slate-800 p-1 rounded-sm border border-slate-200 dark:border-slate-700">
+                <a href="#home" class="nav-link px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider rounded-sm border border-transparent transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Home</a>
+                <a href="#projects" class="nav-link px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider rounded-sm border border-transparent transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Projects</a>
+                <a href="#experience" class="nav-link px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider rounded-sm border border-transparent transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Experience</a>
             </nav>
 
-            <!-- RIGHT CTA & ICONS -->
+            <!-- RIGHT ACTIONS -->
             <div class="flex items-center gap-4">
-
-                <!-- MOBILE: HAMBURGER -->
-                <button id="mobile-menu-button" class="md:hidden icon-btn border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
-                    <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16" />
-                    </svg>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden icon-btn border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
                 </button>
 
-                <!-- THEME TOGGLE (visible on mobile and desktop) -->
-                <button id="theme-toggle" class="icon-btn inline-grid border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme" title="Toggle theme">
-                    <!-- default icon will be replaced by JS to reflect current theme -->
-                    <svg id="theme-toggle-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                        <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                    </svg>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="icon-btn inline-grid border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                    <svg id="theme-toggle-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke-width="1.5"/></svg>
                 </button>
 
-                <a href="mailto:rishivnair@gmail.com" class="hidden sm:inline-block bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 text-xs font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all">
-                    Get In Touch
-                </a>
+                <a href="#contact" class="hidden sm:inline-block bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 text-xs font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all">Get In Touch</a>
             </div>
         </div>
 
-        <!-- MOBILE MENU (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden absolute right-6 top-20 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-sm shadow-lg z-50 p-3" role="menu" aria-label="Mobile menu">
+        <!-- MOBILE MENU -->
+        <div id="mobile-menu" class="hidden md:hidden absolute right-6 top-20 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-sm shadow-lg z-50 p-3">
             <nav class="flex flex-col gap-2">
-                <a href="#" class="px-3 py-2 text-sm font-mono uppercase tracking-wide rounded-sm text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800">Synthesis</a>
-                <a href="#projects" class="px-3 py-2 text-sm font-mono uppercase tracking-wide rounded-sm text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800">Ledger</a>
+                <a href="#home" class="px-3 py-2 text-sm font-mono uppercase tracking-wide rounded-sm text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800">Home</a>
+                <a href="#projects" class="px-3 py-2 text-sm font-mono uppercase tracking-wide rounded-sm text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800">Projects</a>
                 <a href="#experience" class="px-3 py-2 text-sm font-mono uppercase tracking-wide rounded-sm text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800">Experience</a>
                 <div class="border-t border-slate-100 dark:border-slate-800 mt-2 pt-2">
-                    <button id="theme-toggle-mobile" class="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-mono uppercase tracking-wide rounded-sm text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800" aria-label="Toggle theme">
-                        <svg id="theme-toggle-mobile-icon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
-                        Theme
-                    </button>
-                    <a href="mailto:rishivnair@gmail.com" class="mt-2 block text-center px-3 py-2 text-sm font-mono uppercase tracking-wide rounded-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100">Get_In_Touch</a>
+                    <a href="#contact" class="block text-center px-3 py-2 text-sm font-mono uppercase tracking-wide rounded-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100">Get In Touch</a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- CONTENT -->
     <main class="max-w-7xl mx-auto px-6 pt-40 pb-24 w-full">
 
-        <!-- STATUS INDICATOR -->
+        <!-- STATUS -->
         <div class="reveal flex items-center gap-3 mb-12">
             <div class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </div>
-            <span class="font-mono text-xs font-medium tracking-widest text-white bg-slate-900 dark:bg-emerald-500 dark:text-slate-900 px-2 py-1 rounded-sm">SYNTHESIS_ACTIVE // V.2.4.0</span>
+            <span class="font-mono text-xs font-medium tracking-widest text-white bg-slate-900 dark:bg-emerald-500 dark:text-slate-900 px-2 py-1 rounded-sm">OPEN TO WORK</span>
             <div class="h-px bg-slate-200 dark:bg-slate-800 flex-grow ml-4"></div>
         </div>
 
-        <!-- HERO TYPOGRAPHY -->
-        <section id="synthesis" class="reveal delay-100 mb-32">
+        <!-- HERO SECTION -->
+        <section id="home" class="reveal delay-100 mb-32">
             <h1 class="text-6xl md:text-9xl font-extrabold text-slate-900 dark:text-white tracking-tighter leading-[0.85] mb-12">
-                Logic <br>
-                <span class="text-slate-400 dark:text-slate-400">&</span> Luxury.
+                Hospitality <br>
+                <span class="text-slate-400 dark:text-slate-500">&</span> Intelligence.
             </h1>
             <p class="max-w-2xl text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300 leading-relaxed">
-                Designing intelligent architectures that bridge the gap between 
-                <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">high-frequency computation</span> and 
-                <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">high-touch hospitality</span>.
+                I combine <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">5 years of F&B operations</span> with modern <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">Artificial Intelligence</span> to build tools that solve real problems, cut costs, and reduce waste.
             </p>
         </section>
 
-        <!-- THE LEDGER (PROJECTS) -->
+        <!-- PROJECTS (RENAMED FROM LEDGER) -->
         <section id="projects" class="reveal delay-200">
             <div class="flex items-end justify-between mb-8 border-b border-slate-900 dark:border-slate-700 pb-4">
-                <h2 class="font-mono text-sm tracking-widest uppercase dark:text-slate-300">Engineering_Artifacts</h2>
-                <span class="font-mono text-xs text-slate-400 dark:text-slate-400">INDEX 01-04</span>
+                <h2 class="font-mono text-sm tracking-widest uppercase dark:text-slate-300">Featured Projects</h2>
+                <span class="font-mono text-xs text-slate-400 dark:text-slate-400">01-02</span>
             </div>
 
-            <!-- PROJECT 01: MENU MATRIX -->
+            <!-- MENU MATRIX -->
             <div class="group border-t border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-slate-500 transition-colors duration-500">
                 <a href="https://menu.rishivnair.com" target="_blank" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                    <!-- ID -->
-                    <div class="md:col-span-1">
-                        <span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">001</span>
-                    </div>
-                    <!-- Title & Tags -->
+                    <div class="md:col-span-1"><span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">01</span></div>
                     <div class="md:col-span-4">
                         <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:translate-x-2 transition-transform duration-300">MenuMatrix</h3>
                         <div class="flex gap-2">
-                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Python</span>
-                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Unsupervised ML</span>
+                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Python / AI</span>
+                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">React</span>
                         </div>
                     </div>
-                    <!-- Description -->
                     <div class="md:col-span-5">
                         <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-                            A Full-Stack SaaS utilizing K-Means Clustering to automate menu engineering. 
-                            Features "Data Duration" guardrails and Silhouette Score validation to transform 
-                            messy F&B data into strategic profitability quadrants.
+                            A smart dashboard for restaurant owners. I built an AI algorithm that analyzes sales data to automatically identify profitable items vs. waste, helping managers optimize their menus in seconds.
                         </p>
                     </div>
-                    <!-- Action -->
                     <div class="md:col-span-2 flex justify-end">
-                        <div class="h-10 w-10 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-slate-900 transit[...]">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                            </svg>
+                        <div class="h-10 w-10 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-slate-900 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <!-- PROJECT 02: RESUME (Placeholder) -->
+            <!-- RESUME -->
             <div class="group border-t border-b border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-slate-500 transition-colors duration-500">
                 <a href="#" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                    <div class="md:col-span-1">
-                        <span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">002</span>
-                    </div>
+                    <div class="md:col-span-1"><span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">02</span></div>
                     <div class="md:col-span-4">
-                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:translate-x-2 transition-transform duration-300">System_Kernel</h3>
+                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:translate-x-2 transition-transform duration-300">My Resume</h3>
                         <div class="flex gap-2">
-                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">PDF</span>
-                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Curriculum Vitae</span>
+                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">PDF Download</span>
                         </div>
                     </div>
                     <div class="md:col-span-5">
                         <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Comprehensive documentation of professional history, including operational roles 
-                            in hospitality and technical certifications in Artificial Intelligence.
+                            A detailed look at my background, from managing high-volume restaurant teams to building cloud-based software architectures.
                         </p>
                     </div>
                     <div class="md:col-span-2 flex justify-end">
-                        <div class="h-10 w-10 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-slate-900 transit[...]">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                            </svg>
+                        <div class="h-10 w-10 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-slate-900 transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
                         </div>
                     </div>
                 </a>
             </div>
-
         </section>
-<!-- OPERATIONAL HISTORY -->
+
+        <!-- EXPERIENCE -->
         <section id="experience" class="reveal delay-300 mb-32">
-            
             <div class="flex items-end justify-between mb-16 border-b border-slate-900 dark:border-slate-700 pb-4">
-                <h2 class="font-mono text-sm tracking-widest uppercase dark:text-slate-300">Operational_History</h2>
-                <span class="font-mono text-xs text-slate-400 dark:text-slate-400">SEQ 01-04</span>
+                <h2 class="font-mono text-sm tracking-widest uppercase dark:text-slate-300">Work Experience</h2>
+                <span class="font-mono text-xs text-slate-400 dark:text-slate-400">2018 - PRESENT</span>
             </div>
 
             <div class="relative border-l border-slate-200 dark:border-slate-700 ml-3 space-y-20">
-                
-                <!-- JOB 01: GASTRONOMICA (Supervisor) -->
+                <!-- JOB 01 -->
                 <div class="relative pl-12 group">
-                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white dark:bg-slate-900 border border-slate-400 dark:border-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:border-slate-900 dark:group-hover:border-slate-900 transition-colors"></div>
-                    
-                    <span class="font-mono text-xs text-slate-400 dark:text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">
-                        NOV 2023 — PRESENT
-                    </span>
-                    
+                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white dark:bg-slate-900 border border-slate-400 dark:border-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors"></div>
+                    <span class="font-mono text-xs text-slate-400 dark:text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">NOV 2023 — PRESENT</span>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Restaurant Supervisor</h3>
-                    
-                    <!-- Company Block with Logo -->
                     <div class="flex items-center gap-3 mb-6">
-                        <!-- Ensure you upload 'gastronomica.png' to your repo -->
-                        <img src="gastronomica.png" alt="Gastronomica Logo" class="h-6 w-auto grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
-                        <div class="text-sm font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300">
-                            Gastronomica ME // Riyadh
-                        </div>
+                        <img src="gastronomica.png" alt="Logo" class="h-6 w-auto grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                        <div class="text-sm font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300">Gastronomica ME // Riyadh</div>
                     </div>
-                    
                     <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mb-6">
-                        Orchestrated operations for an award-winning venue ("Best Newcomer" by What's On Magazine). 
-                        Managed inventory allocation protocols, oversaw daily logistics, and synthesized 
-                        operational reports for upper management.
+                        Led operations for an award-winning venue ("Best Newcomer" by What's On Magazine). Managed inventory, daily logistics, and reporting. I use this operational experience to design better software for the industry.
                     </p>
-
-                    <div class="flex gap-2 flex-wrap">
-                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-mono uppercase tracking-wide text-slate-600 dark:text-slate-300 rounded-sm">Operations Mgmt</span>
-                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-mono uppercase tracking-wide text-slate-600 dark:text-slate-300 rounded-sm">Reporting</span>
-                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-mono uppercase tracking-wide text-slate-600 dark:text-slate-300 rounded-sm">Inventory</span>
-                    </div>
                 </div>
 
-                <!-- JOB 02: GASTRONOMICA (Server) -->
+                <!-- JOB 02 -->
                 <div class="relative pl-12 group">
-                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white dark:bg-slate-900 border border-slate-400 dark:border-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:border-slate-900 dark:group-hover:border-slate-900 transition-colors"></div>
-                    
-                    <span class="font-mono text-xs text-slate-400 dark:text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">
-                        DEC 2021 — OCT 2023
-                    </span>
-                    
+                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white dark:bg-slate-900 border border-slate-400 dark:border-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors"></div>
+                    <span class="font-mono text-xs text-slate-400 dark:text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">DEC 2021 — OCT 2023</span>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Server</h3>
-                    
                     <div class="flex items-center gap-3 mb-6">
-                        <!-- Using same logo for same company -->
-                        <img src="gastronomica.png" alt="Gastronomica Logo" class="h-6 w-auto grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
-                        <div class="text-sm font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300">
-                            Gastronomica ME // Kuwait
-                        </div>
+                        <img src="gastronomica.png" alt="Logo" class="h-6 w-auto grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                        <div class="text-sm font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300">Gastronomica ME // Kuwait</div>
                     </div>
-                    
                     <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
-                        Executed high-touch guest service standards while driving sales targets. 
-                        Facilitated cross-team communication to ensure seamless service delivery.
+                        Executed high-touch guest service standards while driving sales targets. Learned the importance of speed and accuracy in POS systems.
                     </p>
                 </div>
 
-                <!-- JOB 03: TABLEZ -->
+                <!-- JOB 03 -->
                 <div class="relative pl-12 group">
-                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white dark:bg-slate-900 border border-slate-400 dark:border-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:border-slate-900 dark:group-hover:border-slate-900 transition-colors"></div>
-                    
-                    <span class="font-mono text-xs text-slate-400 dark:text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">
-                        MAR 2020 — DEC 2021
-                    </span>
-                    
+                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white dark:bg-slate-900 border border-slate-400 dark:border-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors"></div>
+                    <span class="font-mono text-xs text-slate-400 dark:text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">MAR 2020 — DEC 2021</span>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">F&B Controls Executive</h3>
-                    
                     <div class="flex items-center gap-3 mb-6">
-                        <!-- Ensure you upload 'tablez.png' -->
-                        <img src="tablez.png" alt="Tablez Logo" class="h-6 w-auto grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
-                        <div class="text-sm font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300">
-                            Tablez Food Company // India
-                        </div>
+                        <img src="tablez.png" alt="Logo" class="h-6 w-auto grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                        <div class="text-sm font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300">Tablez Food Company // India</div>
                     </div>
-                    
-                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mb-6">
-                        Executed corporate audits and inventory control across three major brands. 
-                        Leveraged <strong>Microsoft AX Dynamic</strong> and Excel to maintain strict cost controls 
-                        and validate supply chain efficiency.
-                    </p>
-
-                    <div class="flex gap-2 flex-wrap">
-                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-mono uppercase tracking-wide text-slate-600 dark:text-slate-300 rounded-sm">MS AX Dynamic</span>
-                        <span class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-[10px] font-mono uppercase tracking-wide text-slate-600 dark:text-slate-300 rounded-sm">Auditing</span>
-                    </div>
-                </div>
-
-                <!-- JOB 04: OBEROI -->
-                <div class="relative pl-12 group">
-                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white dark:bg-slate-900 border border-slate-400 dark:border-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:border-slate-900 dark:group-hover:border-slate-900 transition-colors"></div>
-                    
-                    <span class="font-mono text-xs text-slate-400 dark:text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">
-                        JUL 2018 — JAN 2020
-                    </span>
-                    
-                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">F&B Assistant</h3>
-                    
-                    <div class="flex items-center gap-3 mb-6">
-                        <!-- Ensure you upload 'oberoi.png' -->
-                        <img src="oberoi.png" alt="Oberoi Logo" class="h-8 w-auto grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
-                        <div class="text-sm font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300">
-                            Oberoi Hotels & Resorts // India
-                        </div>
-                    </div>
-                    
                     <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
-                        Foundation in luxury hospitality operations. Managed guest service requirements 
-                        within a high-pressure, elite environment.
+                        Executed corporate audits and inventory control. Leveraged <strong>Microsoft AX Dynamic</strong> and Excel to maintain strict cost controls—my first step into data analytics.
                     </p>
                 </div>
 
+                <!-- JOB 04 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white dark:bg-slate-900 border border-slate-400 dark:border-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors"></div>
+                    <span class="font-mono text-xs text-slate-400 dark:text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">JUL 2018 — JAN 2020</span>
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">F&B Assistant</h3>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="oberoi.png" alt="Logo" class="h-8 w-auto grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                        <div class="text-sm font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300">Oberoi Hotels & Resorts</div>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                        Foundation in luxury hospitality operations. Managed guest service requirements in a high-pressure environment.
+                    </p>
+                </div>
             </div>
         </section>
-<!-- COMMUNICATION HUB (Contact) -->
+
+        <!-- CONTACT / COMMUNICATION HUB -->
         <section id="contact" class="reveal delay-300 mb-32">
-            <div class="flex items-end justify-between mb-16 border-b border-slate-900 pb-4">
-                <h2 class="font-mono text-sm tracking-widest uppercase">Communication_Channels</h2>
-                <span class="font-mono text-xs text-slate-400">STATUS: ONLINE</span>
+            <div class="flex items-end justify-between mb-16 border-b border-slate-900 dark:border-slate-700 pb-4">
+                <h2 class="font-mono text-sm tracking-widest uppercase dark:text-slate-300">Communication Channels</h2>
+                <span class="font-mono text-xs text-slate-400 dark:text-slate-400">STATUS: ONLINE</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- CHANNEL 01: PHONE -->
-                <a href="tel:+966574972813" class="group border border-slate-200 p-8 hover:border-slate-900 hover:bg-white transition-all duration-300">
-                    <div class="mb-4 text-slate-400 group-hover:text-slate-900 transition-colors">
-                        <!-- Phone Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                        </svg>
+                <!-- Phone -->
+                <a href="tel:+966574972813" class="group border border-slate-200 dark:border-slate-700 p-8 hover:border-slate-900 dark:hover:border-slate-500 bg-white dark:bg-slate-900 transition-all duration-300">
+                    <div class="mb-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
                     </div>
-                    <div class="font-mono text-xs uppercase tracking-widest text-slate-500 mb-1">Direct Line</div>
-                    <div class="text-lg font-bold text-slate-900">+966 57 497 2813</div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">Direct Line</div>
+                    <div class="text-lg font-bold text-slate-900 dark:text-white">+966 57 497 2813</div>
                 </a>
 
-                <!-- CHANNEL 02: WHATSAPP -->
-                <a href="https://wa.me/966574972813" target="_blank" class="group border border-slate-200 p-8 hover:border-emerald-500 hover:bg-white transition-all duration-300">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/966574972813" target="_blank" class="group border border-slate-200 dark:border-slate-700 p-8 hover:border-emerald-500 hover:bg-white dark:hover:bg-slate-900 transition-all duration-300">
                     <div class="mb-4 text-slate-400 group-hover:text-emerald-500 transition-colors">
-                        <!-- WhatsApp Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.506-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                        </svg>
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.506-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                     </div>
-                    <div class="font-mono text-xs uppercase tracking-widest text-slate-500 mb-1">WhatsApp</div>
-                    <div class="text-lg font-bold text-slate-900">Start Chat</div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">WhatsApp</div>
+                    <div class="text-lg font-bold text-slate-900 dark:text-white">Start Chat</div>
                 </a>
 
-                <!-- CHANNEL 03: EMAIL -->
-                <a href="mailto:rishivnair09@gmail.com" class="group border border-slate-200 p-8 hover:border-slate-900 hover:bg-white transition-all duration-300">
-                    <div class="mb-4 text-slate-400 group-hover:text-slate-900 transition-colors">
-                        <!-- Mail Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                        </svg>
+                <!-- Email -->
+                <a href="mailto:rishivnair09@gmail.com" class="group border border-slate-200 dark:border-slate-700 p-8 hover:border-slate-900 dark:hover:border-slate-500 bg-white dark:bg-slate-900 transition-all duration-300">
+                    <div class="mb-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
                     </div>
-                    <div class="font-mono text-xs uppercase tracking-widest text-slate-500 mb-1">Email</div>
-                    <div class="text-lg font-bold text-slate-900">rishivnair09@gmail.com</div>
+                    <div class="font-mono text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">Email</div>
+                    <div class="text-lg font-bold text-slate-900 dark:text-white">rishivnair09@gmail.com</div>
                 </a>
-
             </div>
         </section>
-  <!-- SYSTEM FOOTER (Transparent & Functional) -->
-    <footer class="border-t border-slate-200 mt-32 py-12">
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 mt-32 py-12">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            
-            <!-- Left: Status -->
-            <div class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-slate-400">
+            <div class="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500">
                 <span class="relative flex h-2 w-2">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
                 System_Operational
             </div>
-
-            <!-- Center: Copyright -->
-            <div class="font-mono text-[10px] uppercase tracking-widest text-slate-300">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-slate-300 dark:text-slate-600">
                 // © 2025 Rishi V Nair
             </div>
-
-            <!-- Right: Functional Return Button -->
-            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="group flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">
-                Return To Top
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 group-hover:-translate-y-1 transition-transform">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
-                </svg>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="group flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
+                Return_To_Origin
+                <svg class="w-4 h-4 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" /></svg>
             </button>
         </div>
     </footer>
 
-    <!-- THEME & MOBILE MENU SCRIPT -->
+    <!-- SCRIPTS -->
     <script>
+        // THEME LOGIC
         (function() {
             const root = document.documentElement;
             const toggleBtn = document.getElementById('theme-toggle');
             const toggleIcon = document.getElementById('theme-toggle-icon');
-            const toggleMobileBtn = document.getElementById('theme-toggle-mobile');
-            const toggleMobileIcon = document.getElementById('theme-toggle-mobile-icon');
-
             const mobileBtn = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             let mobileOpen = false;
 
-            // Helper to set icon (sun for light, moon for dark)
             function setIcon(elIcon, isDark) {
                 if (!elIcon) return;
                 elIcon.innerHTML = isDark ?
-                    // moon
                     '<path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />' :
-                    // sun
                     '<path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill="none" /><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill="none" />';
             }
 
-            // Read preference: localStorage -> system -> default light
             function getInitialTheme() {
                 const stored = localStorage.getItem('theme');
-                if (stored === 'dark') return 'dark';
-                if (stored === 'light') return 'light';
-                // fallback to system preference
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
-                return 'light';
+                if (stored) return stored;
+                return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
             }
 
             function applyTheme(theme) {
                 const isDark = theme === 'dark';
-                if (isDark) {
-                    root.classList.add('dark');
-                } else {
-                    root.classList.remove('dark');
-                }
+                isDark ? root.classList.add('dark') : root.classList.remove('dark');
                 setIcon(toggleIcon, isDark);
-                setIcon(toggleMobileIcon, isDark);
-                toggleBtn && toggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-                if (toggleMobileBtn) toggleMobileBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
             }
 
-            // init theme
             const initial = getInitialTheme();
             applyTheme(initial);
 
-            // toggle handlers
             toggleBtn && toggleBtn.addEventListener('click', function() {
                 const isDark = root.classList.toggle('dark');
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
                 setIcon(toggleIcon, isDark);
-                if (toggleMobileIcon) setIcon(toggleMobileIcon, isDark);
             });
 
-            if (toggleMobileBtn) {
-                toggleMobileBtn.addEventListener('click', function() {
-                    const isDark = root.classList.toggle('dark');
-                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                    setIcon(toggleMobileIcon, isDark);
-                    if (toggleIcon) setIcon(toggleIcon, isDark);
-                });
-            }
-
-            // respond to system changes if user has not explicitly set theme
-            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-                const stored = localStorage.getItem('theme');
-                if (stored) return; // respect explicit choice
-                applyTheme(e.matches ? 'dark' : 'light');
-            });
-
-            // Mobile menu toggle
+            // Mobile Menu
             function openMobileMenu() {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.remove('mobile-menu-exit');
+                mobileMenu.classList.remove('hidden', 'mobile-menu-exit');
                 mobileMenu.classList.add('mobile-menu-enter');
                 mobileBtn.setAttribute('aria-expanded', 'true');
                 mobileOpen = true;
@@ -543,50 +364,32 @@
                 mobileBtn.setAttribute('aria-expanded', 'false');
                 mobileOpen = false;
             }
-
             mobileBtn && mobileBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 if (!mobileOpen) openMobileMenu(); else closeMobileMenu();
             });
-
-            // close when clicking outside
             document.addEventListener('click', function(e) {
                 if (!mobileOpen) return;
-                const target = e.target;
-                if (!mobileMenu.contains(target) && !mobileBtn.contains(target)) {
-                    closeMobileMenu();
-                }
+                if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) closeMobileMenu();
             });
-
-            // close on link click inside mobile menu
-            mobileMenu && mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => closeMobileMenu()));
-
+            mobileMenu && mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
         })();
-    </script>
-<!-- ACTIVE NAVIGATION SCRIPT -->
-    <script>
-        // 1. Select all sections and nav links
+
+        // SCROLL HIGHLIGHTER
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
+        
+        // Define active/inactive classes for both Light and Dark modes
+        const activeClasses = ['bg-white', 'dark:bg-slate-800', 'shadow-sm', 'text-slate-900', 'dark:text-white', 'border-slate-200', 'dark:border-slate-700'];
+        const inactiveClasses = ['text-slate-500', 'dark:text-slate-400', 'hover:text-slate-900', 'dark:hover:text-white', 'border-transparent'];
 
-        // 2. Define the styles for Active vs Inactive state
-        const activeClasses = ['bg-white', 'shadow-sm', 'text-slate-900', 'border-slate-200'];
-        const inactiveClasses = ['text-slate-500', 'hover:text-slate-900'];
-
-        // 3. Create the Observer (The "Eye" that watches scrolling)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Get the ID of the visible section
                     const currentId = entry.target.getAttribute('id');
-
-                    // Loop through links and update styles
                     navLinks.forEach(link => {
-                        // Reset all links to inactive
                         link.classList.remove(...activeClasses);
                         link.classList.add(...inactiveClasses);
-
-                        // If this link matches the current section, make it Active
                         if (link.getAttribute('href') === `#${currentId}`) {
                             link.classList.add(...activeClasses);
                             link.classList.remove(...inactiveClasses);
@@ -594,9 +397,7 @@
                     });
                 }
             });
-        }, { threshold: 0.3 }); // Trigger when 30% of section is visible
-
-        // 4. Start watching the sections
+        }, { threshold: 0.3 });
         sections.forEach(section => observer.observe(section));
     </script>
 </body>
