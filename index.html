@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- TAILWIND CSS (No Build Step Required) -->
+    <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- TAILWIND CONFIG -->
@@ -27,33 +27,26 @@
                             50: '#f8fafc',
                             100: '#f1f5f9',
                             200: '#e2e8f0',
+                            400: '#94a3b8',
                             900: '#0f172a',
                         },
                         emerald: {
                             500: '#10b981',
                         }
-                    },
-                    spacing: {
-                        '128': '32rem',
                     }
                 }
             }
         }
     </script>
 
-    <!-- CUSTOM STYLES FOR GRID & ANIMATION -->
+    <!-- CUSTOM STYLES -->
     <style>
-        body {
-            background-color: #f8fafc;
-            color: #0f172a;
-        }
-        /* The Blueprint Grid Pattern */
+        body { background-color: #f8fafc; color: #0f172a; }
         .bg-grid {
             background-size: 40px 40px;
             background-image: linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
         }
-        /* Smooth Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(10px);
@@ -61,11 +54,7 @@
         }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-
-        @keyframes revealContent {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes revealContent { to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-grid min-h-screen flex flex-col justify-between selection:bg-slate-900 selection:text-white">
@@ -89,16 +78,31 @@
             <nav class="hidden md:flex bg-slate-100 p-1 rounded-sm border border-slate-200">
                 <a href="#" class="px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider bg-white shadow-sm rounded-sm border border-slate-200 text-slate-900 transition-all">Synthesis</a>
                 <a href="#projects" class="px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-all">Ledger</a>
-                <a href="#about" class="px-6 py-2 text-xs font-mono font-medium uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-all">Protocol</a>
             </nav>
 
-            <!-- RIGHT CTA -->
+            <!-- RIGHT CTA & ICONS -->
             <div class="flex items-center gap-6">
-                <div class="hidden md:flex gap-4 font-mono text-xs tracking-widest text-slate-400">
-                    <a href="https://github.com/rishivnair" target="_blank" class="hover:text-slate-900 transition-colors">GITHUB</a>
-                    <a href="#" class="hover:text-slate-900 transition-colors">LINKEDIN</a>
+                
+                <!-- SOCIAL ICONS -->
+                <div class="hidden md:flex items-center gap-4">
+                    <!-- GITHUB ICON -->
+                    <a href="https://github.com/rishinairOG" target="_blank" class="group">
+                        <svg class="w-5 h-5 fill-slate-400 group-hover:fill-slate-900 transition-colors" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    
+                    <!-- LINKEDIN ICON -->
+                    <a href="https://www.linkedin.com/in/rishi-v-nair-909a85141/" target="_blank" class="group">
+                        <svg class="w-5 h-5 fill-slate-400 group-hover:fill-slate-900 transition-colors" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
                 </div>
-                <a href="mailto:your@email.com" class="bg-slate-900 text-white px-6 py-3 text-xs font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 transition-all">
+
+                <div class="h-6 w-px bg-slate-200 hidden md:block"></div>
+
+                <a href="mailto:rishivnair@gmail.com" class="bg-slate-900 text-white px-6 py-3 text-xs font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 transition-all">
                     Get_In_Touch
                 </a>
             </div>
@@ -172,7 +176,7 @@
                 </a>
             </div>
 
-            <!-- PROJECT 02: PLACEHOLDER (Resume) -->
+            <!-- PROJECT 02: RESUME (Placeholder) -->
             <div class="group border-t border-b border-slate-200 hover:border-slate-900 transition-colors duration-500">
                 <a href="#" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                     <div class="md:col-span-1">
@@ -202,10 +206,95 @@
             </div>
 
         </section>
+<!-- OPERATIONAL HISTORY (Experience) -->
+        <section id="experience" class="reveal delay-300 mb-32">
+            <div class="flex items-end justify-between mb-12 border-b border-slate-900 pb-4">
+                <h2 class="font-mono text-sm tracking-widest uppercase">Operational_History</h2>
+                <span class="font-mono text-xs text-slate-400">SEQ 01-03</span>
+            </div>
 
+            <div class="relative border-l border-slate-200 ml-3 space-y-16">
+                
+                <!-- JOB 01 (Latest) -->
+                <div class="relative pl-12 group">
+                    <!-- Timeline Node (Square for logic aesthetic) -->
+                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white border border-slate-400 group-hover:bg-slate-900 group-hover:border-slate-900 transition-colors"></div>
+                    
+                    <!-- Date -->
+                    <span class="font-mono text-xs text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">
+                        2023 — PRESENT
+                    </span>
+                    
+                    <!-- Role & Company -->
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Systems Architect</h3>
+                    <div class="text-sm font-mono uppercase tracking-wide text-slate-500 mb-6">
+                        MenuMatrix Inc.
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-slate-600 leading-relaxed max-w-2xl mb-6">
+                        Architected a full-stack SaaS platform using Python (FastAPI) and React. 
+                        Engineered K-Means clustering algorithms to detect inventory inefficiencies, 
+                        reducing food waste for clients by an estimated 15% per quarter.
+                    </p>
+
+                    <!-- Tech Stack Tags -->
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-mono uppercase tracking-wide text-slate-600 rounded-sm">Python</span>
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-mono uppercase tracking-wide text-slate-600 rounded-sm">Google Cloud</span>
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-mono uppercase tracking-wide text-slate-600 rounded-sm">Docker</span>
+                    </div>
+                </div>
+
+                <!-- JOB 02 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white border border-slate-400 group-hover:bg-slate-900 group-hover:border-slate-900 transition-colors"></div>
+                    
+                    <span class="font-mono text-xs text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">
+                        2021 — 2023
+                    </span>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Operations Manager</h3>
+                    <div class="text-sm font-mono uppercase tracking-wide text-slate-500 mb-6">
+                        The Grand Hotel
+                    </div>
+                    
+                    <p class="text-slate-600 leading-relaxed max-w-2xl mb-6">
+                        Managed high-volume F&B operations with a team of 40+. 
+                        Synthesized operational data to optimize menu pricing strategies, 
+                        bridging the gap between legacy hospitality systems and modern analytics.
+                    </p>
+
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-mono uppercase tracking-wide text-slate-600 rounded-sm">Operations</span>
+                        <span class="px-2 py-1 bg-slate-100 text-[10px] font-mono uppercase tracking-wide text-slate-600 rounded-sm">Data Analysis</span>
+                    </div>
+                </div>
+
+                <!-- JOB 03 -->
+                <div class="relative pl-12 group">
+                    <div class="absolute -left-[5px] top-2 h-2.5 w-2.5 bg-white border border-slate-400 group-hover:bg-slate-900 group-hover:border-slate-900 transition-colors"></div>
+                    
+                    <span class="font-mono text-xs text-slate-400 mb-2 block group-hover:text-emerald-500 transition-colors">
+                        2019 — 2021
+                    </span>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Technical Intern</h3>
+                    <div class="text-sm font-mono uppercase tracking-wide text-slate-500 mb-6">
+                        Tech Solutions LLP
+                    </div>
+                    
+                    <p class="text-slate-600 leading-relaxed max-w-2xl">
+                        Assisted in the deployment of automated inventory tracking systems. 
+                        Conducted initial research on predictive modeling for supply chain logistics.
+                    </p>
+                </div>
+
+            </div>
+        </section>
     </main>
 
-    <!-- SYSTEM FOOTER -->
+    <!-- FOOTER -->
     <footer class="border-t border-slate-200 bg-white py-8">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-2">
