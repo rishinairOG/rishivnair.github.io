@@ -121,9 +121,9 @@
         </div>
 
         <!-- HERO SECTION (Corrected Layout & Image) -->
-        <section id="home" class="reveal delay-100 mb-32">
+        <section id="home" class="reveal delay-100 mb-32 relative overflow-hidden min-h-[60vh]">
             <!-- Changed layout from 50/50 to 12-column grid for better spacing -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                 
                 <!-- Left: Text Content (Occupies 7/12 columns - MORE SPACE) -->
                 <div class="lg:col-span-7">
@@ -132,7 +132,7 @@
                         <span class="text-slate-400 dark:text-slate-500">&</span> Intelligence.
                     </h1>
                     <p class="max-w-2xl text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-300 leading-relaxed mb-10">
-                        I combine <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">5 years of F&B operations</span> with modern <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">Artificial Intelligence</span> to build tools that solve real problems, cut costs, and reduce waste.
+                        I combine <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">7 years of F&B operations</span> with modern <span class="text-slate-900 dark:text-white border-b border-slate-300 dark:border-slate-700">Artificial Intelligence</span> to build tools that solve real problems, cut costs, and reduce waste.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="https://menu.rishivnair.com" target="_blank" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all text-center">Launch Menu AI Tool</a>
@@ -189,7 +189,7 @@
            <!-- RESUME -->
             <div class="group border-t border-b border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-slate-500 transition-colors duration-500">
                 <!-- UPDATED LINK HERE -->
-                <a href="resume.pdf.pdf" target="_blank" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <a href="resume.pdf" target="_blank" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                     <div class="md:col-span-1"><span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">02</span></div>
                     <div class="md:col-span-4">
                         <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:translate-x-2 transition-transform duration-300">Resume</h3>
@@ -428,6 +428,165 @@
             });
         }, { threshold: 0.3 });
         sections.forEach(section => observer.observe(section));
+    </script>
+    <!-- NEURAL NETWORK 3D BACKGROUND -->
+    <script type="module">
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
+
+        // Graceful WebGL detection — bail out silently if unavailable
+        (function () {
+        const t = document.createElement('canvas');
+        if (!t.getContext('webgl2') && !t.getContext('webgl')) return;
+
+        const isMobile = window.innerWidth < 768;
+        const COUNT      = isMobile ? 32 : 68;
+        const SPEED      = 0.003;
+        const MAX_DIST   = 3.0;
+        const BX = 6.5, BY = 5, BZ = 2.5; // Bounds per axis
+
+        // ── Canvas ────────────────────────────────────────────────
+        const canvas = document.createElement('canvas');
+        canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 1.2s ease;';
+        const hero = document.getElementById('home');
+        hero.prepend(canvas);
+
+        // ── Renderer ──────────────────────────────────────────────
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !isMobile });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const scene  = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
+        camera.position.set(0, 0, 10);
+
+        function resize() {
+            const w = hero.clientWidth;
+            const h = Math.max(hero.clientHeight, 300);
+            renderer.setSize(w, h, false);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+        }
+        resize();
+        new ResizeObserver(resize).observe(hero);
+
+        // ── Colors ────────────────────────────────────────────────
+        const EMERALD = 0x10b981;
+        function isDark() { return document.documentElement.classList.contains('dark'); }
+        function nodeColor(isAccent) {
+            if (isAccent) return EMERALD;
+            return isDark() ? 0xe2e8f0 : 0x334155;
+        }
+        function lineColor()    { return isDark() ? 0xe2e8f0 : 0x334155; }
+        function nodeOpacity(isAccent) { return isAccent ? (isDark() ? 0.85 : 0.6) : (isDark() ? 0.5 : 0.18); }
+        function lineOpacity()  { return isDark() ? 0.09 : 0.055; }
+
+        // ── Nodes ─────────────────────────────────────────────────
+        const geo      = new THREE.SphereGeometry(0.055, 5, 5);
+        const positions  = [];
+        const velocities = [];
+        const meshes     = [];
+        const accents    = []; // indices of emerald-coloured nodes
+
+        for (let i = 0; i < COUNT; i++) {
+            const isAccent = i < Math.ceil(COUNT * 0.08); // ~8% emerald
+            accents.push(isAccent);
+
+            const p = new THREE.Vector3(
+                (Math.random() - 0.5) * BX * 2,
+                (Math.random() - 0.5) * BY * 2,
+                (Math.random() - 0.5) * BZ * 2
+            );
+            const v = new THREE.Vector3(
+                (Math.random() - 0.5) * SPEED,
+                (Math.random() - 0.5) * SPEED,
+                (Math.random() - 0.5) * SPEED * 0.4
+            );
+            positions.push(p);
+            velocities.push(v);
+
+            const mat = new THREE.MeshBasicMaterial({
+                color: nodeColor(isAccent),
+                transparent: true,
+                opacity: nodeOpacity(isAccent)
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.copy(p);
+            meshes.push(mesh);
+            scene.add(mesh);
+        }
+
+        // ── Lines ─────────────────────────────────────────────────
+        const maxSegs   = COUNT * (COUNT - 1) / 2;
+        const lineArr   = new Float32Array(maxSegs * 6);
+        const lineGeo   = new THREE.BufferGeometry();
+        const linePosAttr = new THREE.BufferAttribute(lineArr, 3);
+        linePosAttr.setUsage(THREE.DynamicDrawUsage);
+        lineGeo.setAttribute('position', linePosAttr);
+        const lineMat = new THREE.LineBasicMaterial({
+            color: lineColor(), transparent: true, opacity: lineOpacity()
+        });
+        scene.add(new THREE.LineSegments(lineGeo, lineMat));
+
+        // ── Theme observer ────────────────────────────────────────
+        new MutationObserver(() => {
+            meshes.forEach((m, i) => {
+                m.material.color.setHex(nodeColor(accents[i]));
+                m.material.opacity = nodeOpacity(accents[i]);
+            });
+            lineMat.color.setHex(lineColor());
+            lineMat.opacity = lineOpacity();
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+        // ── Mouse parallax (desktop only) ─────────────────────────
+        const mouse = new THREE.Vector2();
+        if (!isMobile) {
+            window.addEventListener('mousemove', e => {
+                mouse.x =  (e.clientX / window.innerWidth  - 0.5) * 1.8;
+                mouse.y = -(e.clientY / window.innerHeight - 0.5) * 1.2;
+            });
+        }
+
+        // ── Animation loop ────────────────────────────────────────
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Move nodes + bounce
+            for (let i = 0; i < COUNT; i++) {
+                positions[i].addScaledVector(velocities[i], 1);
+                if (Math.abs(positions[i].x) > BX) velocities[i].x *= -1;
+                if (Math.abs(positions[i].y) > BY) velocities[i].y *= -1;
+                if (Math.abs(positions[i].z) > BZ) velocities[i].z *= -1;
+                meshes[i].position.copy(positions[i]);
+            }
+
+            // Rebuild line segments
+            let idx = 0;
+            for (let i = 0; i < COUNT; i++) {
+                for (let j = i + 1; j < COUNT; j++) {
+                    if (positions[i].distanceTo(positions[j]) < MAX_DIST) {
+                        lineArr[idx++] = positions[i].x;
+                        lineArr[idx++] = positions[i].y;
+                        lineArr[idx++] = positions[i].z;
+                        lineArr[idx++] = positions[j].x;
+                        lineArr[idx++] = positions[j].y;
+                        lineArr[idx++] = positions[j].z;
+                    }
+                }
+            }
+            lineGeo.setDrawRange(0, idx / 3);
+            linePosAttr.needsUpdate = true;
+
+            // Camera drift toward mouse
+            camera.position.x += (mouse.x - camera.position.x) * 0.018;
+            camera.position.y += (mouse.y - camera.position.y) * 0.018;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Fade in after a short delay
+        setTimeout(() => { canvas.style.opacity = '1'; }, 400);
+        })(); // end IIFE
     </script>
 </body>
 </html>
