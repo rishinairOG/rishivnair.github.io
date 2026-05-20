@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishi V Nair — AI Engineer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 48px 64px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1.5px solid #1a1a1a;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .tagline {
+      font-size: 12.5px;
+      color: #555;
+      letter-spacing: 0.3px;
+      margin-bottom: 12px;
+    }
+
+    .summary {
+      font-size: 12.5px;
+      color: #333;
+      line-height: 1.65;
+      max-width: 460px;
+      text-align: justify;
+    }
+
+    .contact-block {
+      text-align: right;
+      font-size: 12px;
+      color: #333;
+      line-height: 2;
+    }
+
+    .contact-block a {
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .contact-block a:hover { text-decoration: underline; }
+
+    /* ── SECTION HEADERS ── */
+    .section { margin-bottom: 22px; }
+
+    .section-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #d8d8d8;
+    }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .skill-box {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px 13px;
+    }
+
+    .skill-box strong {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .skill-box span {
+      font-size: 11.5px;
+      color: #444;
+      line-height: 1.55;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item { margin-bottom: 10px; }
+    .edu-item strong { font-size: 13px; font-weight: 700; }
+    .edu-item .edu-school { font-size: 12px; color: #444; }
+    .edu-item .edu-date { font-size: 11.5px; color: #777; }
+    .edu-item .edu-note { font-size: 11.5px; color: #555; font-style: italic; margin-top: 2px; }
+
+    /* ── CERTS ── */
+    .cert-list { list-style: none; }
+    .cert-list li {
+      font-size: 12.5px;
+      padding: 3px 0;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .cert-list li:last-child { border-bottom: none; }
+    .cert-list .cert-name { color: #1a1a1a; }
+    .cert-list .cert-issuer { color: #666; font-size: 11.5px; white-space: nowrap; margin-left: 12px; }
+
+    /* ── PROJECTS ── */
+    .project { margin-bottom: 16px; }
+    .project-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1px; }
+    .project-title { font-size: 13.5px; font-weight: 700; }
+    .project-url { font-size: 11px; color: #888; }
+    .project-url a { color: #555; text-decoration: none; }
+    .project-stack { font-size: 11px; color: #666; margin-bottom: 5px; }
+    .project ul { padding-left: 16px; }
+    .project ul li { font-size: 12.5px; color: #333; margin-bottom: 3px; line-height: 1.55; }
+
+    /* ── EXPERIENCE ── */
+    .job { margin-bottom: 18px; }
+    .job-header { margin-bottom: 4px; }
+    .job-title { font-size: 14px; font-weight: 700; }
+    .job-meta { font-size: 12px; color: #555; margin-bottom: 6px; }
+    .job-meta .company { font-weight: 600; color: #333; }
+    .job ul { padding-left: 16px; }
+    .job ul li { font-size: 12.5px; color: #333; margin-bottom: 3px; line-height: 1.55; }
+    .job ul li span.sub { display: block; padding-left: 16px; font-size: 12px; color: #444; margin-bottom: 2px; }
+
+    /* ── LANGUAGES ── */
+    .lang-line { font-size: 12.5px; color: #333; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { padding: 30px 36px 40px; font-size: 12.5px; }
+      h1 { font-size: 32px; }
+      .section { margin-bottom: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <h1>Rishi V Nair</h1>
+      <p class="tagline">AI Engineer • Hospitality & Operations Intelligence</p>
+      <p class="summary">
+        Hospitality operations leader with 7+ years of F&B experience, building AI-powered tools that solve real
+        operational problems. Currently pursuing a Postgraduate Program in AI/ML at Texas McCombs School of Business,
+        with hands-on experience in agentic AI, constraint optimisation, and deploying production-grade Python tools.
+        Combining deep domain knowledge with emerging AI skills to engineer intelligent systems for the hospitality,
+        retail, and operations sectors.
+      </p>
+    </div>
+    <div class="contact-block">
+      <div>Riyadh, Saudi Arabia</div>
+      <div>+966 57 497 2813</div>
+      <div><a href="mailto:rishivnair09@gmail.com">rishivnair09@gmail.com</a></div>
+      <div><a href="https://www.linkedin.com/in/rishi-v-nair-909a85141" target="_blank">linkedin.com/in/rishi-v-nair</a></div>
+      <div><a href="https://rishivnair.github.io" target="_blank">rishivnair.github.io</a></div>
+    </div>
+  </div>
+
+  <!-- CORE SKILLS -->
+  <div class="section">
+    <div class="section-title">Core Skills</div>
+    <div class="skills-grid">
+
+      <div class="skill-box">
+        <strong>Generative AI</strong>
+        <span>Prompt Engineering · Agentic AI Workflows · GPT Customisation · Conversational AI · AI-Assisted Automation</span>
+      </div>
+
+      <div class="skill-box">
+        <strong>AI Tools</strong>
+        <span>OpenAI API · Claude · Cursor · Google AI Studio · Streamlit · LangGraph (learning)</span>
+      </div>
+
+      <div class="skill-box">
+        <strong>Machine Learning & Analytics</strong>
+        <span>Model Building · Decision Trees · Classification · Predictive Demand Planning · EDA</span>
+      </div>
+
+      <div class="skill-box">
+        <strong>Data & Operations</strong>
+        <span>Microsoft AX Dynamics · Large-scale Data Extraction · Inventory Analytics · MICROS POS · Excel</span>
+      </div>
+
+      <div class="skill-box">
+        <strong>Domain Expertise</strong>
+        <span>F&B Operations · Labor Optimisation · Menu Engineering · Cost Control · Guest Behavior Analysis</span>
+      </div>
+
+      <div class="skill-box">
+        <strong>Tools & Productivity</strong>
+        <span>Python · OR-Tools · React · GitHub · VS Code · Notion</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+
+    <div class="edu-item">
+      <strong>Postgraduate Program in Artificial Intelligence and Machine Learning</strong>
+      <div class="edu-school">Texas McCombs School of Business</div>
+      <div class="edu-date">Sep 2025 – Sep 2026 &nbsp;·&nbsp; In Progress</div>
+      <div class="edu-note">Skills: Model Building · Decision Trees · Data-Driven Decision Making</div>
+    </div>
+
+    <div class="edu-item">
+      <strong>Bachelor of Hotel Management (Food & Beverage)</strong>
+      <div class="edu-school">St. Joseph's Institute of Hotel Management and Catering Technology</div>
+      <div class="edu-date">2014 – 2018</div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <ul class="cert-list">
+      <li>
+        <span class="cert-name">Agentic AI and AI Agents for Leaders</span>
+        <span class="cert-issuer">Vanderbilt University &nbsp;·&nbsp; May 2025</span>
+      </li>
+      <li>
+        <span class="cert-name">OpenAI GPTs: Creating Your Own Custom AI Assistants</span>
+        <span class="cert-issuer">Vanderbilt University &nbsp;·&nbsp; Apr 2025</span>
+      </li>
+      <li>
+        <span class="cert-name">Agentic AI and AI Agents: A Primer for Leaders</span>
+        <span class="cert-issuer">Vanderbilt University &nbsp;·&nbsp; Mar 2025</span>
+      </li>
+      <li>
+        <span class="cert-name">Google Prompting Essentials</span>
+        <span class="cert-issuer">Google &nbsp;·&nbsp; Mar 2025</span>
+      </li>
+      <li>
+        <span class="cert-name">Data-Driven Decision-Making for the Real World</span>
+        <span class="cert-issuer">LinkedIn Learning &nbsp;·&nbsp; Apr 2022</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-title">Personal Projects</div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-title">MenuMatrix</span>
+        <span class="project-url"><a href="https://menu.rishivnair.com" target="_blank">menu.rishivnair.com</a></span>
+      </div>
+      <div class="project-stack">Python / AI &nbsp;·&nbsp; React</div>
+      <ul>
+        <li>Built a smart menu profitability dashboard for restaurant owners; an AI algorithm analyses sales data to automatically classify menu items by revenue contribution and waste, enabling managers to optimise menus in seconds.</li>
+        <li>Applied 7+ years of F&B domain knowledge to define business rules and profit margin thresholds that power the item classification engine.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-title">AI Shift Scheduler</span>
+        <span class="project-url"><a href="https://scheduler.rishivnair.com" target="_blank">scheduler.rishivnair.com</a></span>
+      </div>
+      <div class="project-stack">Python &nbsp;·&nbsp; OR-Tools (Constraint Optimisation) &nbsp;·&nbsp; Streamlit</div>
+      <ul>
+        <li>Developed a constraint-optimisation scheduling engine for F&B restaurants, assigning shifts across 40+ staff while enforcing section coverage rules, OFF-day fairness, and labour cost limits — exporting a ready-to-use Excel roster.</li>
+        <li>Translated frontline scheduling experience into programmatic constraints, reducing manual rostering from hours to seconds; deployed as an interactive Streamlit web app.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+
+    <div class="job">
+      <div class="job-title">Restaurant Supervisor</div>
+      <div class="job-meta"><span class="company">White Robata by Gastronomica (Japanese) — Gastronomica ME</span> &nbsp;·&nbsp; Riyadh, KSA &nbsp;·&nbsp; Nov 2023 – Present</div>
+      <ul>
+        <li>Led pre-opening operations for a new KSA branch (Lazy Cat, Riyadh) — end-to-end operational setup, staff onboarding, and system configuration; the same operational complexity that directly informed both AI projects.</li>
+        <li>Improved NPS by 15% in 2 months by implementing structured customer feedback collection and data-driven service standards.</li>
+        <li>Streamlined duty scheduling workflows, reducing labour costs by at least 5% — the operational pain point that motivated building the AI Shift Scheduler.</li>
+        <li>Trained staff on upsell frameworks, maintaining average per-guest spend of 260.00 SAR with a table turnover rate of 1.6 per shift.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-title">Waiter</div>
+      <div class="job-meta"><span class="company">White Robata by Gastronomica (Japanese)</span> &nbsp;·&nbsp; Kuwait &nbsp;·&nbsp; 2021 – 2023</div>
+      <ul>
+        <li>Consistently ranked top 3 in guest satisfaction scores and APG across the team — performance tracked and reported through operational data systems.</li>
+        <li>Maintained full knowledge of a specialised Japanese menu and took initiative on cross-functional duties.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-title">F&B Controls Associate</div>
+      <div class="job-meta"><span class="company">Tables Food Company by Lulu</span> &nbsp;·&nbsp; India (Corporate Office) &nbsp;·&nbsp; 2020 – 2021</div>
+      <ul>
+        <li>Extracted and optimised large-scale operational data from Microsoft AX Dynamics across 41 stores and 3 brands, building clean datasets that fed management decision-making pipelines.</li>
+        <li>Assisted in implementing 100+ recipes in AX Dynamics, establishing structured inventory and cost records across a multi-brand F&B operation.</li>
+        <li>Supervised pan-India inventory activities from the corporate office, managing multi-location data centrally.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- LANGUAGES -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <p class="lang-line">English (Advanced) &nbsp;·&nbsp; Malayalam (Native) &nbsp;·&nbsp; Hindi (Intermediate) &nbsp;·&nbsp; Spanish (Elementary)</p>
+  </div>
+
+</body>
+</html>
