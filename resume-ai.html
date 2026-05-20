@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishi V Nair — AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #fff;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 44px 48px 60px;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 28px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      color: #111;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #666;
+      letter-spacing: 0.2px;
+      margin-bottom: 14px;
+    }
+
+    .summary {
+      font-size: 12.5px;
+      color: #333;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    .contact {
+      text-align: right;
+      font-size: 12px;
+      color: #444;
+      line-height: 2.1;
+      padding-top: 6px;
+    }
+    .contact a { color: #444; text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    /* ─── SECTION ─── */
+    .section { margin-bottom: 20px; }
+
+    .section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 11px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* ─── SKILLS ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .skill-box {
+      border: 1px solid #e0e0e0;
+      border-radius: 3px;
+      padding: 9px 12px;
+    }
+
+    .skill-box b {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 3px;
+    }
+
+    .skill-box span {
+      font-size: 11.5px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* ─── EDUCATION ─── */
+    .edu-row { margin-bottom: 9px; }
+    .edu-row strong { font-size: 13px; font-weight: 700; color: #111; display: block; }
+    .edu-row .meta { font-size: 12px; color: #555; }
+    .edu-row .note { font-size: 11.5px; color: #777; margin-top: 2px; }
+
+    /* ─── CERTIFICATIONS ─── */
+    .cert-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 4px 0;
+      border-bottom: 1px solid #f2f2f2;
+      font-size: 12.5px;
+    }
+    .cert-row:last-child { border-bottom: none; }
+    .cert-row .issuer { font-size: 11.5px; color: #777; white-space: nowrap; margin-left: 16px; }
+
+    /* ─── PROJECTS ─── */
+    .project { margin-bottom: 15px; }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .project-top strong { font-size: 13.5px; font-weight: 700; color: #111; }
+    .project-top a { font-size: 11px; color: #888; text-decoration: none; }
+    .project-top a:hover { text-decoration: underline; }
+
+    .stack { font-size: 11.5px; color: #777; margin-bottom: 5px; }
+
+    .project ul, .job ul { padding-left: 15px; }
+    .project ul li, .job ul li {
+      font-size: 12.5px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 3px;
+    }
+    .sub-bullet {
+      list-style: circle;
+      padding-left: 14px;
+      margin-top: 2px;
+    }
+    .sub-bullet li {
+      font-size: 12px !important;
+      color: #444 !important;
+    }
+
+    /* ─── EXPERIENCE ─── */
+    .job { margin-bottom: 16px; }
+
+    .job-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 1px; }
+
+    .job-meta {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .job-meta .co { font-weight: 600; color: #333; }
+
+    /* ─── LANGUAGES ─── */
+    .lang { font-size: 12.5px; color: #333; }
+
+    /* ─── PRINT ─── */
+    @media print {
+      body { padding: 28px 36px 40px; font-size: 12px; }
+      h1 { font-size: 34px; }
+      .section { margin-bottom: 16px; }
+      a { color: inherit !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <h1>Rishi V Nair</h1>
+      <p class="subtitle">AI Engineer &nbsp;·&nbsp; Hospitality &amp; Operations Intelligence</p>
+      <p class="summary">
+        Hospitality operations leader with 7+ years of F&amp;B experience building and deploying AI tools that
+        solve real operational problems. Currently pursuing a Postgraduate Program in AI/ML at Texas McCombs
+        School of Business. Experienced in agentic AI workflows, constraint optimisation, and shipping
+        production Python tools. Bridges deep F&amp;B domain knowledge with emerging AI skills to engineer
+        intelligent systems for hospitality, retail, and operations sectors across KSA, UAE, and India.
+      </p>
+    </div>
+    <div class="contact">
+      <div>Riyadh, Saudi Arabia</div>
+      <div>+966 57 497 2813</div>
+      <div><a href="mailto:rishivnair09@gmail.com">rishivnair09@gmail.com</a></div>
+      <div><a href="https://linkedin.com/in/rishi-v-nair-909a85141" target="_blank">linkedin.com/in/rishi-v-nair</a></div>
+      <div><a href="https://rishivnair.github.io" target="_blank">rishivnair.github.io</a></div>
+    </div>
+  </div>
+
+  <!-- CORE SKILLS -->
+  <div class="section">
+    <div class="section-title">Core Skills</div>
+    <div class="skills-grid">
+      <div class="skill-box">
+        <b>Generative AI</b>
+        <span>Prompt Engineering &nbsp;·&nbsp; Agentic AI Workflows &nbsp;·&nbsp; GPT Customisation &nbsp;·&nbsp; Conversational AI &nbsp;·&nbsp; AI-Assisted Automation</span>
+      </div>
+      <div class="skill-box">
+        <b>AI Tools</b>
+        <span>OpenAI API &nbsp;·&nbsp; Claude &nbsp;·&nbsp; Cursor &nbsp;·&nbsp; Google AI Studio &nbsp;·&nbsp; Streamlit &nbsp;·&nbsp; LangGraph (learning)</span>
+      </div>
+      <div class="skill-box">
+        <b>Machine Learning &amp; Analytics</b>
+        <span>Model Building &nbsp;·&nbsp; Decision Trees &nbsp;·&nbsp; Classification &nbsp;·&nbsp; Predictive Demand Planning &nbsp;·&nbsp; EDA</span>
+      </div>
+      <div class="skill-box">
+        <b>Data &amp; Operations</b>
+        <span>Microsoft AX Dynamics &nbsp;·&nbsp; Large-scale Data Extraction &nbsp;·&nbsp; Inventory Analytics &nbsp;·&nbsp; MICROS POS &nbsp;·&nbsp; Excel</span>
+      </div>
+      <div class="skill-box">
+        <b>Domain Expertise</b>
+        <span>F&amp;B Operations &nbsp;·&nbsp; Labour Optimisation &nbsp;·&nbsp; Menu Engineering &nbsp;·&nbsp; Cost Control &nbsp;·&nbsp; Guest Behaviour Analysis</span>
+      </div>
+      <div class="skill-box">
+        <b>Tools &amp; Productivity</b>
+        <span>Python &nbsp;·&nbsp; OR-Tools &nbsp;·&nbsp; React &nbsp;·&nbsp; GitHub &nbsp;·&nbsp; VS Code &nbsp;·&nbsp; Notion</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+
+    <div class="edu-row">
+      <strong>Postgraduate Program in Artificial Intelligence and Machine Learning</strong>
+      <div class="meta">Texas McCombs School of Business &nbsp;·&nbsp; Sep 2025 – Sep 2026 &nbsp;·&nbsp; <em>In Progress</em></div>
+      <div class="note">Model Building &nbsp;·&nbsp; Decision Trees &nbsp;·&nbsp; Data-Driven Decision Making</div>
+    </div>
+
+    <div class="edu-row">
+      <strong>Bachelor of Hotel Management — Food &amp; Beverage</strong>
+      <div class="meta">St. Joseph's Institute of Hotel Management and Catering Technology &nbsp;·&nbsp; 2014 – 2018</div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <div class="cert-row">
+      <span>Agentic AI and AI Agents for Leaders</span>
+      <span class="issuer">Vanderbilt University &nbsp;·&nbsp; May 2025</span>
+    </div>
+    <div class="cert-row">
+      <span>OpenAI GPTs: Creating Your Own Custom AI Assistants</span>
+      <span class="issuer">Vanderbilt University &nbsp;·&nbsp; Apr 2025</span>
+    </div>
+    <div class="cert-row">
+      <span>Agentic AI and AI Agents: A Primer for Leaders</span>
+      <span class="issuer">Vanderbilt University &nbsp;·&nbsp; Mar 2025</span>
+    </div>
+    <div class="cert-row">
+      <span>Google Prompting Essentials</span>
+      <span class="issuer">Google &nbsp;·&nbsp; Mar 2025</span>
+    </div>
+    <div class="cert-row">
+      <span>Data-Driven Decision-Making for the Real World</span>
+      <span class="issuer">LinkedIn Learning &nbsp;·&nbsp; Apr 2022</span>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-title">Personal Projects</div>
+
+    <div class="project">
+      <div class="project-top">
+        <strong>MenuMatrix</strong>
+        <a href="https://menu.rishivnair.com" target="_blank">menu.rishivnair.com</a>
+      </div>
+      <div class="stack">Python / AI &nbsp;·&nbsp; React</div>
+      <ul>
+        <li>Built a smart menu profitability dashboard for restaurant owners; an AI algorithm analyses sales data to automatically classify menu items by revenue contribution and waste, enabling managers to optimise menus in seconds.</li>
+        <li>Applied 7+ years of F&amp;B domain knowledge to define business rules and profit margin thresholds that power the item classification engine.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <strong>AI Shift Scheduler</strong>
+        <a href="https://scheduler.rishivnair.com" target="_blank">scheduler.rishivnair.com</a>
+      </div>
+      <div class="stack">Python &nbsp;·&nbsp; OR-Tools (Constraint Optimisation) &nbsp;·&nbsp; Streamlit</div>
+      <ul>
+        <li>Developed a constraint-optimisation scheduling engine for F&amp;B restaurants, assigning shifts across 40+ staff while enforcing section coverage rules, OFF-day fairness, and labour cost limits — exporting a ready-to-use Excel roster.</li>
+        <li>Translated frontline scheduling experience into programmatic constraints, reducing manual rostering from hours to seconds; deployed as an interactive Streamlit web app.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+
+    <div class="job">
+      <div class="job-title">Restaurant Supervisor</div>
+      <div class="job-meta">
+        <span class="co">White Robata by Gastronomica (Japanese) — Gastronomica ME</span>
+        &nbsp;·&nbsp; Riyadh, KSA &nbsp;·&nbsp; Nov 2023 – Present
+      </div>
+      <ul>
+        <li>Led pre-opening operations for a new KSA branch — end-to-end setup, staff onboarding, and system configuration; directly the operational experience that informed both AI projects.</li>
+        <li>Improved NPS by 15% in 2 months by implementing structured customer feedback collection and data-driven service standards.</li>
+        <li>Streamlined duty scheduling, reducing labour costs by at least 5% — the operational pain point that motivated building the AI Shift Scheduler.</li>
+        <li>Trained staff on upsell methodology, maintaining average per-guest spend of 260.00 SAR and a table turnover of 1.6 per shift.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-title">Waiter</div>
+      <div class="job-meta">
+        <span class="co">White Robata by Gastronomica (Japanese)</span>
+        &nbsp;·&nbsp; Kuwait &nbsp;·&nbsp; 2021 – 2023
+      </div>
+      <ul>
+        <li>Consistently ranked top 3 in guest satisfaction scores and APG — performance tracked and reported through operational data systems.</li>
+        <li>Maintained full knowledge of a specialised Japanese menu and took initiative on cross-functional duties.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-title">F&amp;B Controls Associate</div>
+      <div class="job-meta">
+        <span class="co">Tables Food Company by Lulu</span>
+        &nbsp;·&nbsp; India (Corporate Office) &nbsp;·&nbsp; 2020 – 2021
+      </div>
+      <ul>
+        <li>Extracted and optimised large-scale operational data from Microsoft AX Dynamics across 41 stores and 3 brands, building clean datasets for management decision-making pipelines.</li>
+        <li>Assisted in implementing 100+ recipes in AX Dynamics, establishing structured inventory and cost records across a multi-brand operation.</li>
+        <li>Supervised pan-India inventory activities from the corporate office, managing multi-location data centrally.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LANGUAGES -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <p class="lang">English (Advanced) &nbsp;·&nbsp; Malayalam (Native) &nbsp;·&nbsp; Hindi (Intermediate) &nbsp;·&nbsp; Spanish (Elementary)</p>
+  </div>
+
+</body>
+</html>
