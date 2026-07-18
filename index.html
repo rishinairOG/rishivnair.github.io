@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rishi V Nair | AI & Operations</title>
 
+    <!-- SEO / SOCIAL -->
+    <meta name="description" content="Rishi V Nair — hospitality operations leader with 7+ years in F&B, building and deploying production AI tools: menu-profitability analytics, constraint-based staff scheduling, and an LLM-driven options trading system.">
+    <link rel="canonical" href="https://rishivnair.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rishivnair.com/">
+    <meta property="og:title" content="Rishi V Nair | AI & Operations">
+    <meta property="og:description" content="7+ years of F&B operations meets modern AI — production tools that cut costs and reduce waste, plus an LLM-driven NIFTY options trading system.">
+    <meta property="og:image" content="https://rishivnair.com/profile.png">
+    <meta property="og:image:alt" content="Rishi V Nair">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rishi V Nair | AI & Operations">
+    <meta name="twitter:description" content="7+ years of F&B operations meets modern AI — production tools that cut costs and reduce waste, plus an LLM-driven NIFTY options trading system.">
+    <meta name="twitter:image" content="https://rishivnair.com/profile.png">
+
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -137,7 +151,7 @@
                     <div class="flex flex-col sm:flex-row gap-4 flex-wrap">
                         <a href="https://menu.rishivnair.com" target="_blank" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all text-center">Launch Menu AI Tool</a>
                         <a href="https://scheduler.rishivnair.com" target="_blank" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all text-center">Launch Shift Scheduler</a>
-                        <a href="resume.pdf" target="_blank" class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all text-center">Download CV</a>
+                        <a href="resume-ai.pdf" target="_blank" class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all text-center">Download CV</a>
                     </div>
                 </div>
 
@@ -213,15 +227,16 @@
                 <a href="https://github.com/rishinairOG/fin_agent_rishi" target="_blank" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                     <div class="md:col-span-1"><span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">03</span></div>
                     <div class="md:col-span-4">
-                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:translate-x-2 transition-transform duration-300">Fin Agent</h3>
+                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:translate-x-2 transition-transform duration-300">AEGIS v2 — Fin Agent</h3>
                         <div class="flex gap-2 flex-wrap">
-                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Python / XGBoost</span>
+                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Python / LLM</span>
                             <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Zerodha Kite API</span>
+                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">XGBoost</span>
                         </div>
                     </div>
                     <div class="md:col-span-5">
                         <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-                            A 6-phase quantitative research pipeline evaluating a short straddle/strangle strategy on NIFTY options. Fuses live Zerodha tradebook data with Black-Scholes Greeks, runs forensic EDA and Monte Carlo backtesting, and gates live trades through an XGBoost + Isolation Forest risk engine with SHAP explainability.
+                            An intraday NIFTY options trading system where an LLM manages a short-straddle strategy in real time — deciding rolls and exits between hard-coded risk guardrails (per-leg stop-loss, VIX circuit-breaker, roll caps, forced time exit). Built on a 9-phase quant research pipeline: Black-Scholes Greeks, Monte Carlo stress-testing, and data-derived stop geometry, with an XGBoost + Isolation Forest risk gate. Deployed live on a VPS, currently paper trading.
                         </p>
                     </div>
                     <div class="md:col-span-2 flex justify-end">
@@ -366,7 +381,7 @@
                 System_Operational
             </div>
             <div class="font-mono text-[10px] uppercase tracking-widest text-slate-300 dark:text-slate-600">
-                // © 2025 Rishi V Nair
+                // © <span id="footer-year">2026</span> Rishi V Nair
             </div>
             <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="group flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
                 Return_To_Origin
@@ -437,6 +452,12 @@
                 if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) closeMobileMenu();
             });
             mobileMenu && mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+        })();
+
+        // FOOTER YEAR
+        (function () {
+            const y = document.getElementById('footer-year');
+            if (y) y.textContent = new Date().getFullYear();
         })();
 
         // SCROLL HIGHLIGHTER
