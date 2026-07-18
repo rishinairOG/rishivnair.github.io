@@ -33,7 +33,8 @@ Personal portfolio website for Rishi V Nair — AI & Operations.
 index.html      — Single-file site
 profile.png     — Hero portrait
 gastronomica.png, tablez.png, oberoi.png — Company logos
-resume.pdf      — CV download
+resume-ai.html  — AI-focused HTML resume
+resume-ai.pdf   — CV download
 favicon.svg     — Site icon
 CNAME           — Custom domain config
 ```
