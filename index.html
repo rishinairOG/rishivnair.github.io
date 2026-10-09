@@ -7,7 +7,7 @@
     <title>Rishi V Nair | AI & Operations</title>
 
     <!-- SEO / SOCIAL -->
-    <meta name="description" content="Rishi V Nair — hospitality operations leader with 7+ years in F&B, building and deploying production AI tools: menu-profitability analytics, constraint-based staff scheduling, and an LLM-driven options trading system.">
+    <meta name="description" content="Rishi V Nair — hospitality operations leader with 7+ years in F&B, building and deploying production AI tools: menu-profitability analytics and an LLM-driven options trading system.">
     <link rel="canonical" href="https://rishivnair.com/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rishivnair.com/">
@@ -150,7 +150,6 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 flex-wrap">
                         <a href="https://menu.rishivnair.com" target="_blank" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all text-center">Launch Menu AI Tool</a>
-                        <a href="https://scheduler.rishivnair.com" target="_blank" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all text-center">Launch Shift Scheduler</a>
                         <a href="resume-ai.pdf" target="_blank" class="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-8 py-4 text-sm font-mono font-medium uppercase tracking-widest rounded-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all text-center">Download CV</a>
                     </div>
                 </div>
@@ -168,10 +167,10 @@
         </section>
 
         <!-- PROJECTS -->
-        <section id="projects" class="reveal delay-200">
+        <section id="projects" class="reveal delay-200 mb-32">
             <div class="flex items-end justify-between mb-8 border-b border-slate-900 dark:border-slate-700 pb-4">
                 <h2 class="font-mono text-sm tracking-widest uppercase dark:text-slate-300">Featured Projects</h2>
-                <span class="font-mono text-xs text-slate-400 dark:text-slate-400">01-03</span>
+                <span class="font-mono text-xs text-slate-400 dark:text-slate-400">01-02</span>
             </div>
 
             <!-- MENU MATRIX -->
@@ -198,34 +197,10 @@
                 </a>
             </div>
 
-            <!-- AI SHIFT SCHEDULER -->
-            <div class="group border-t border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-slate-500 transition-colors duration-500">
-                <a href="https://scheduler.rishivnair.com" target="_blank" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                    <div class="md:col-span-1"><span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">02</span></div>
-                    <div class="md:col-span-4">
-                        <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:translate-x-2 transition-transform duration-300">AI Shift Scheduler</h3>
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Python / OR-Tools</span>
-                            <span class="px-2 py-1 border border-slate-200 dark:border-slate-700 text-[10px] font-mono uppercase tracking-wide text-slate-500 dark:text-slate-300 rounded-sm">Streamlit</span>
-                        </div>
-                    </div>
-                    <div class="md:col-span-5">
-                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Automated duty schedule generator for F&amp;B restaurants. A constraint solver assigns shifts across 40+ staff, enforces per-section coverage rules, manages OFF-day fairness, and exports a ready-to-use Excel roster in seconds.
-                        </p>
-                    </div>
-                    <div class="md:col-span-2 flex justify-end">
-                        <div class="h-10 w-10 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-slate-900 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
             <!-- FIN AGENT -->
             <div class="group border-t border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-slate-500 transition-colors duration-500">
-                <a href="https://github.com/rishinairOG/fin_agent_rishi" target="_blank" class="block py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                    <div class="md:col-span-1"><span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">03</span></div>
+                <div class="py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <div class="md:col-span-1"><span class="font-mono text-xs text-slate-400 dark:text-slate-400 group-hover:text-emerald-500 transition-colors">02</span></div>
                     <div class="md:col-span-4">
                         <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-3 group-hover:translate-x-2 transition-transform duration-300">AEGIS v2 — Fin Agent</h3>
                         <div class="flex gap-2 flex-wrap">
@@ -239,13 +214,9 @@
                             An intraday NIFTY options trading system where an LLM manages a short-straddle strategy in real time — deciding rolls and exits between hard-coded risk guardrails (per-leg stop-loss, VIX circuit-breaker, roll caps, forced time exit). Built on a 9-phase quant research pipeline: Black-Scholes Greeks, Monte Carlo stress-testing, and data-derived stop geometry, with an XGBoost + Isolation Forest risk gate. Deployed live on a VPS, currently paper trading.
                         </p>
                     </div>
-                    <div class="md:col-span-2 flex justify-end">
-                        <div class="h-10 w-10 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-slate-900 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                        </div>
-                    </div>
-                </a>
+                </div>
             </div>
+        </section>
 
         <!-- EXPERIENCE -->
         <section id="experience" class="reveal delay-300 mb-32">
